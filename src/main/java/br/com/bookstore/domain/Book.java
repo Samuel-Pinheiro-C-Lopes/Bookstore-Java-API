@@ -3,12 +3,15 @@ package br.com.bookstore.domain;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 @Entity // Annotated as a entity in the data base
@@ -30,7 +33,14 @@ public class Book implements Serializable {
 	@JoinColumn(name = "Id_Author")
 	private Author BookAuthor;
 
-	
+	// Many to Many
+	@ManyToMany
+	@JoinTable(
+			name = "Book_Subject",
+			joinColumns = @JoinColumn(name = "Id_Book"),
+			inverseJoinColumns = @JoinColumn(name = "Id_Subject")
+	)
+	private Set<Subject> BookSubjects;
 	
 	@Override
 	public String toString() {

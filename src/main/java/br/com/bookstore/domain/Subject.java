@@ -2,9 +2,11 @@ package br.com.bookstore.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 
@@ -17,6 +19,10 @@ public class Subject implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer Id;
 	private String Name;
+	
+	// Many To Many
+	@ManyToMany(mappedBy = "BookSubjects")
+	private Set<Book> SubjectBooks;
 	
 	@Override
 	public String toString() {
