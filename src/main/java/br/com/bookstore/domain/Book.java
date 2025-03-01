@@ -41,19 +41,17 @@ public class Book implements Serializable {
 			inverseJoinColumns = @JoinColumn(name = "Id_Subject")
 	)
 	private Set<Subject> BookSubjects;
-	
+
 	@Override
 	public String toString() {
 		return "Book [Id=" + Id + ", Name=" + Name + ", PublicationDate=" + PublicationDate + ", Pages=" + Pages
-				+ ", Price=" + Price + ", BookAuthor=" + BookAuthor + "]";
+				+ ", Price=" + Price + ", BookAuthor=" + BookAuthor + ", BookSubjects=" + BookSubjects + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(BookAuthor, Id, Name, Pages, Price, PublicationDate);
+		return Objects.hash(BookAuthor, BookSubjects, Id, Name, Pages, Price, PublicationDate);
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -64,11 +62,11 @@ public class Book implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Book other = (Book) obj;
-		return Objects.equals(BookAuthor, other.BookAuthor) && Objects.equals(Id, other.Id)
-				&& Objects.equals(Name, other.Name) && Objects.equals(Pages, other.Pages)
-				&& Objects.equals(Price, other.Price) && Objects.equals(PublicationDate, other.PublicationDate);
+		return Objects.equals(BookAuthor, other.BookAuthor) && Objects.equals(BookSubjects, other.BookSubjects)
+				&& Objects.equals(Id, other.Id) && Objects.equals(Name, other.Name)
+				&& Objects.equals(Pages, other.Pages) && Objects.equals(Price, other.Price)
+				&& Objects.equals(PublicationDate, other.PublicationDate);
 	}
-
 
 
 	public Integer getId() {
@@ -118,5 +116,14 @@ public class Book implements Serializable {
 	public void setBookAuthor(Author bookAuthor) {
 		BookAuthor = bookAuthor;
 	}
+
+	public Set<Subject> getBookSubjects() {
+		return BookSubjects;
+	}
+
+	public void setBookSubjects(Set<Subject> bookSubjects) {
+		BookSubjects = bookSubjects;
+	}
+	
 
 }
