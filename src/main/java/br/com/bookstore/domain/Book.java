@@ -28,6 +28,14 @@ public class Book implements Serializable {
 	private Integer Pages;
 	private Float Price;
 	
+	public Book(String name, Date publicationDate, Integer pages, Float price) {
+		super();
+		Name = name;
+		PublicationDate = publicationDate;
+		Pages = pages;
+		Price = price;
+	}
+
 	// Many to One
 	@ManyToOne
 	@JoinColumn(name = "Id_Author")

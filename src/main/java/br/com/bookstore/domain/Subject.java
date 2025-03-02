@@ -24,6 +24,11 @@ public class Subject implements Serializable {
 	@ManyToMany(mappedBy = "BookSubjects")
 	private Set<Book> SubjectBooks;
 	
+	public Subject(String name) {
+		super();
+		Name = name;
+	}
+
 	@Override
 	public String toString() {
 		return "Subject [Id=" + Id + ", Name=" + Name + "]";

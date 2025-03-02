@@ -20,6 +20,12 @@ public class Author implements Serializable {
 	@OneToMany(mappedBy = "BookAuthor")
 	private Set<Book> AuthorBooks;
 	
+	// base constructor
+	public Author(String name) {
+		super();
+		Name = name;
+	}
+
 	@Override
 	public String toString() {
 		return "Author [Id=" + Id + ", Name=" + Name + ", AuthorBooks=" + AuthorBooks + "]";
