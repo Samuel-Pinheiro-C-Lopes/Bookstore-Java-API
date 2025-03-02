@@ -14,7 +14,6 @@ public class SubjectService {
 	
 	@Autowired
 	private SubjectRepository SubjectRepo;
-	
 
 	// Get
 	public Subject FindById(Integer id) {
