@@ -18,7 +18,7 @@ public class AuthorService {
 	// Get
 	public Author FindById(Integer id) {
 		return this.AuthorRepo.findById(id).orElseThrow(
-				() -> new EntityNotFoundException("Book with Id: " + id + " was not found."));
+				() -> new EntityNotFoundException("Author with Id: " + id + " was not found."));
 	}
 	
 	public List<Author> FindAll() {
